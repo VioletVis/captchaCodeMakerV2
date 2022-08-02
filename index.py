@@ -53,7 +53,7 @@ def getFieldData():
     }
     data = {
     "ctype": "Username",
-    "username":"CleanedByBy",
+    "cvalue":"CleanedByBy",
     "password":"Red284go!",
     "captchaId":"a",
     "captchaToken":"token",
