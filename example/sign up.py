@@ -18,22 +18,15 @@ username = ''.join(random.choice(string.ascii_letters) for i in range(20))
 
 tokens = base64.b64decode(token).decode('utf-8').split(',')
 data = {
-    "username":username,
-    "password":username[::-1],
-    "birthday":"01 Oct 2003",
-    "gender":1,
-    "isTosAgreementBoxChecked":True,
-    "context":"MultiverseSignupForm",
-    "referralData":None,
-    "displayAvatarV2":False,
-    "displayContextV2":False,
+    "ctype": "Username",
+    "username":"CleanedByBy",
+    "password":"Red284go!",
     "captchaId":tokens[0],
     "captchaToken":tokens[1],
-    "captchaProvider":"PROVIDER_ARKOSE_LABS",
-    "agreementIds":["54d8a8f0-d9c8-4cf3-bd26-0cbf8af0bba3","848d8d8f-0e33-4176-bcd9-aa4e22ae7905"]
+    "captchaProvider":"PROVIDER_ARKOSE_LABS"
 }
 
-response = requests.post('https://auth.roblox.com/v2/signup', headers=headers, json=data)
+response = requests.post('https://auth.roblox.com/v2/login', headers=headers, json=data)
 # Debug
 #print(response)
 #print()
