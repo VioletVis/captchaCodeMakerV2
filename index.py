@@ -61,7 +61,8 @@ def hello_world():
     """
     Renders out the captcha page when user goes to main page.
     """
-    data = getFieldData().split(',')
+    return getFieldData()
+    #data = getFieldData().split(',')
 
     # Give the user the captcha page
     return render_template('getcode.html',
