@@ -59,7 +59,7 @@ def getFieldData():
     "captchaToken":"token",
     "captchaProvider":"PROVIDER_ARKOSE_LABS"
 }
-    return requests.post('https://auth.roblox.com/v2/login', headers=headers, json=data).json()["errors"][0]
+    return requests.post('https://auth.roblox.com/v2/login', headers=headers, json=data).json()
 
 #endregion
 
