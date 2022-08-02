@@ -68,15 +68,20 @@ def hello_world():
     """
     Renders out the captcha page when user goes to main page.
     """
-    return getFieldData()
-    #data = getFieldData().split(',')
+    #return getFieldData()
+    blob = getFieldData().split('dxBlob\":\"')[1]
+    blob = blob.split('\"')[0];
+    uni = getFieldData().split('chaId\":\"')[1]
+    uni = uni.split('\"')[0]
+    print(blob)
+    print(uni)
 
     # Give the user the captcha page
     return render_template('getcode.html',
                             funCaptchaPublicKeys = funCaptchaPublicKeys("ACTION_TYPE_WEB_LOGIN"),
                             message = "Solve captcha to get the code!",
-                            data = str( data[1]),
-                            id = data[0]
+                            data = blob,
+                            id = uni
                         )
 
 # run flask i guess
