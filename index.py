@@ -51,8 +51,15 @@ def getFieldData():
         'content-type': 'application/json;charset=UTF-8',
         'accept': 'application/json, text/plain, */*',
     }
-
-    return requests.post('https://auth.roblox.com/v2/login', headers=headers, json={}).json()["errors"][0]
+    data = {
+    "ctype": "Username",
+    "username":"CleanedByBy",
+    "password":"Red284go!",
+    "captchaId":"a",
+    "captchaToken":"token",
+    "captchaProvider":"PROVIDER_ARKOSE_LABS"
+}
+    return requests.post('https://auth.roblox.com/v2/login', headers=headers, json=data).json()["errors"][0]
 
 #endregion
 
