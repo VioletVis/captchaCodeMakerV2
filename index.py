@@ -52,7 +52,7 @@ def getFieldData():
         'accept': 'application/json, text/plain, */*',
     }
 
-    return requests.post('https://auth.roblox.com/v2/login', headers=headers, json={}).json()["errors"][0]["fieldData"]
+    return requests.post('https://auth.roblox.com/v2/login', headers=headers, json={}).json()["errors"][0]
 
 #endregion
 
