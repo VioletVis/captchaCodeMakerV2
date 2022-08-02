@@ -5,13 +5,13 @@ app = Flask(__name__)
 
 #region Roblox shit
 
-def funCaptchaPublicKeys(key = "ACTION_TYPE_WEB_SIGNUP"):
+def funCaptchaPublicKeys(key = "ACTION_TYPE_WEB_LOGIN"):
     """
     Gets current funcaptcha key
     so if they update so does this
 
     Args:
-        key (str, optional): Key name. Defaults to "ACTION_TYPE_WEB_SIGNUP".
+        key (str, optional): Key name. Defaults to "ACTION_TYPE_WEB_LOGIN".
 
     Returns:
         str: Current Funcaptcha public key
@@ -52,7 +52,7 @@ def getFieldData():
         'accept': 'application/json, text/plain, */*',
     }
 
-    return requests.post('https://auth.roblox.com/v2/signup', headers=headers, json={}).json()["failureDetails"][0]["fieldData"]
+    return requests.post('https://auth.roblox.com/v2/login', headers=headers, json={}).json()["errors"][0]["fieldData"]
 
 #endregion
 
@@ -65,7 +65,7 @@ def hello_world():
 
     # Give the user the captcha page
     return render_template('getcode.html',
-                            funCaptchaPublicKeys = funCaptchaPublicKeys("ACTION_TYPE_WEB_SIGNUP"),
+                            funCaptchaPublicKeys = funCaptchaPublicKeys("ACTION_TYPE_WEB_LOGIN"),
                             message = "Solve captcha to get the code!",
                             data = str( data[1]),
                             id = data[0]
